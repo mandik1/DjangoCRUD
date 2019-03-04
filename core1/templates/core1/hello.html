@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+</head>
+{% extends "core1/base.html" %}
+{% block content %}
+<body>
+
+<div class="container">
+
+
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>EMPNAME</th>
+      <th>DEPARTMENT</th>
+      <th>POSITION</th>
+      <th>VIEW DETAIL</th>
+      <th>UPDATE</th>
+      <th>DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for ans in ans %}
+    <tr>
+      <td>{{ans.emp_name}}</ans></td>
+      <td>{{ans.dept}}</td>
+      <td>{{ans.emp_position}}</td>
+      <td></br><a class="btn btn-primary"href="/employeedetail/{{ans.id}}">View</a></td>
+      <td></br><a class="btn btn-success" href="/employeedetail/update/{{ans.id}}">Update</a></td>
+      <td></br><a class="btn btn-warning" href="/employeedetail/delete/{{ans.id}}">Delete</a></td>
+    </tr>
+    
+      
+    
+{% endfor %}
+  </tbody>
+  <td><a class="btn btn-primary" href="{% url 'emp_form' %}">Add</a></td>
+ </table>
+</div>
+
+</body>
+</html>
+
+{% endblock %}
