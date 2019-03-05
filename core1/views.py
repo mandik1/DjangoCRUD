@@ -23,6 +23,7 @@ def empdelete(request,id):
     return redirect("myfunc")
 
 def emp_form(request):
+
     template = "core1/empform.html"
     form = ArticleForm(request.POST)
     if form.is_valid():
@@ -30,7 +31,6 @@ def emp_form(request):
         x.save()
         return redirect("myfunc")
     return render(request,template,{'form':form})
-
 
 def empupdate(request, id):
     template = "core1/empform.html"
